@@ -6,9 +6,9 @@ The `laser2lidar` package is a **ROS 2** package that converts **2D laser scan**
 
 ### Features:
 
-- Subscribes to a **LaserScan** topic (default: `/JK5/sensors/lidar2d_0/scan`)
+- Subscribes to a **LaserScan** topic (default topic name must be set in config file)
 - Converts laser scan data into **PointCloud2** format
-- Publishes the point cloud to an output topic (default: `/pointcloud`)
+- Publishes the point cloud to an output topic (default topic name must be set in config file)
 - Configurable topic names via **YAML configuration file** and **command-line arguments**
 - ROS 2 **launch file** for easy execution
 
@@ -31,7 +31,7 @@ Make sure you have the following installed:
 cd ~/ros2_ws/src
 
 # Clone the repository
-git clone https://github.com/<your_username>/laser2lidar.git
+git clone https://github.com/MikeDegany/laser2lidar.git
 
 # Navigate back to the workspace root
 cd ~/ros2_ws
@@ -69,7 +69,7 @@ This will:
 To override the input and output topics, use command-line arguments:
 
 ```bash
-ros2 launch laser2lidar laser2lidar.launch.py input_topic:=/custom/scan output_topic:=/custom/pointcloud
+ros2 launch laser2lidar laser2lidar.launch.py input_topic:=/custom_scan output_topic:=/custom_pointcloud
 ```
 
 ### 3. Running the Node Directly
@@ -91,7 +91,7 @@ rviz2
 - Add a **PointCloud2** display
 - Set the topic to `/pointcloud`
 - Adjust color and size settings as needed
-
+- Set the fixed frame as your laser scan frame
 ---
 
 ## Configuration
@@ -101,8 +101,8 @@ The node reads parameters from a YAML configuration file located at `config/para
 ```yaml
 laser2lidar_node:
   ros__parameters:
-    input_topic: "/JK5/sensors/lidar2d_0/scan"
-    output_topic: "/pointcloud"
+    input_topic: "/lase_scan_topic"
+    output_topic: "/pointcloud_topic"
 ```
 
 You can edit this file to set custom topic names.
@@ -173,6 +173,6 @@ This package is released under the **MIT License**. See the [LICENSE](LICENSE) f
 
 For issues or suggestions, create an issue on GitHub or contact:
 
-- **GitHub:** [https://github.com/\<your\_username>/laser2lidar](https://github.com/<your_username>/laser2lidar)
-- **Email:** [your-email@example.com](mailto\:your-email@example.com)
+- **GitHub:** [https://github.com/MikeDegany/laser2lidar](https://github.com/MikeDegany/laser2lidar)
+- **Email:** [Mike.Degany@gmail.com](mailto\:Mike.Degany@gmail.com)
 
