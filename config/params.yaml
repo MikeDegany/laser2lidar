@@ -1,0 +1,4 @@
+laser2lidar_node:
+  ros__parameters:
+    input_topic: "/scan"
+    output_topic: "/pointcloud"
