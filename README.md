@@ -101,7 +101,7 @@ The node reads parameters from a YAML configuration file located at `config/para
 ```yaml
 laser2lidar_node:
   ros__parameters:
-    input_topic: "/lase_scan_topic"
+    input_topic: "/laser_scan_topic"
     output_topic: "/pointcloud_topic"
 ```
 
